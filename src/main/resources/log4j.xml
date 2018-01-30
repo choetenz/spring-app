@@ -1,0 +1,62 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="APPLOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C://develop//ws//logs//sacslog.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="3000KB"/>
+		<param name="MaxBackupIndex" value="50" />
+		<param name="Threshold" value="DEBUG"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %t [%-40.40c] %x - %m%n"/>
+		</layout>
+	</appender>
+	<appender name="SPRINGLOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C://develop//ws//logs//spring.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="3000KB"/>
+		<param name="MaxBackupIndex" value="50" />
+		<param name="Threshold" value="DEBUG"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %t [%-40.40c] %x - %m%n"/>
+		</layout>
+	</appender>
+<!-- <appender name="SERVICELOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C://develop//glassfish4//glassfish//domains//domain1//logs//service.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="3000KB"/>
+		<param name="MaxBackupIndex" value="50" />
+		<param name="Threshold" value="DEBUG"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %t [%-40.40c] %x - %m%n"/>
+		</layout>
+	</appender>
+	<appender name="SPRINGLOG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C://develop//glassfish4//glassfish//domains//domain1//logs//spring.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="3000KB"/>
+		<param name="MaxBackupIndex" value="50" />
+		<param name="Threshold" value="DEBUG"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %t [%-40.40c] %x - %m%n"/>
+		</layout>
+	</appender> -->	
+	<logger name="com.tenzin.app">
+	 <appender-ref ref="APPLOG"/>
+	  <level value="DEBUG"/>
+	</logger>
+	<logger name="org.springframework">
+	 <appender-ref ref="SPRINGLOG"/>
+	  <level value="DEBUG"/>
+	</logger>
+<!-- 	<logger name="com.cubic.service">
+	 <appender-ref ref="SERVICELOG"/>
+	  <level value="ERROR"/>
+	</logger>
+	<logger name="org.springframework">
+	 <appender-ref ref="SPRINGLOG"/>
+	  <level value="DEBUG"/>
+	</logger> -->	
+	<root>
+	   <level value="DEBUG"/>
+	</root>
+</log4j:configuration>
